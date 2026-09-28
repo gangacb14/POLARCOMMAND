@@ -1,0 +1,57 @@
+version: "3.9"
+
+services:
+  app:
+    build: .
+    container_name: ipe-lams-core
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - DATABASE_URL=postgres://moes_polar:ant_secret_2026@postgres:5432/ipelams_db
+      - REDIS_URL=redis://redis:6379
+      - MQTT_BROKER_URL=mqtt://mqtt-broker:1883
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    restart: unless-stopped
+
+  postgres:
+    image: postgis/postgis:16-3.4
+    container_name: ipe-lams-postgis
+    environment:
+      POSTGRES_USER: moes_polar
+      POSTGRES_PASSWORD: ant_secret_2026
+      POSTGRES_DB: ipelams_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/01-init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U moes_polar -d ipelams_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7.2-alpine
+    container_name: ipe-lams-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+
+  mqtt-broker:
+    image: eclipse-mosquitto:2.0
+    container_name: ipe-lams-mosquitto
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+
+volumes:
+  pgdata:
+  redisdata:

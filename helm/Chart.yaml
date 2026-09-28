@@ -1,0 +1,6 @@
+apiVersion: v2
+name: ipe-lams
+description: Helm chart for Integrated Polar Expedition Logistics & Asset Management System (Ministry of Earth Sciences)
+type: application
+version: 2.4.0
+appVersion: "2.4.0-SIH2026"

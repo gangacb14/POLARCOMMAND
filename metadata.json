@@ -1,0 +1,10 @@
+{
+  "name": "Remix Remix Remix Remix IPE-LAMS | Polar Expedition Logistics \u0026 Asset Management",
+  "description": "Integrated Polar Expedition Logistics and Asset Management System for the Ministry of Earth Sciences (MoES / NCPOR) \u0026 SIH 2026. Real-time telemetry, cargo chain-of-custody, route planning, offline mobile PWA, and emergency SOS.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

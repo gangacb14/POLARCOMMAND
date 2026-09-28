@@ -1,0 +1,43 @@
+replicaCount: 3
+
+image:
+  repository: moes-polar/ipe-lams-core
+  pullPolicy: IfNotPresent
+  tag: "2.4.0-SIH2026"
+
+service:
+  type: ClusterIP
+  port: 3000
+
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+  hosts:
+    - host: polar.ncpor.res.in
+      paths:
+        - path: /
+          pathType: Prefix
+
+resources:
+  limits:
+    cpu: 2000m
+    memory: 2048Mi
+  requests:
+    cpu: 500m
+    memory: 512Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 75
+
+env:
+  NODE_ENV: "production"
+  PORT: "3000"
+  ENABLE_SATELLITE_DECODER: "true"
+  IRIDIUM_SBD_PORT: "10800"

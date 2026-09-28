@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </linearGradient>
+    <linearGradient id="iceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E0F2FE" />
+      <stop offset="60%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#F59E0B" />
+    </linearGradient>
+  </defs>
+  <!-- Background Disc -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" />
+  <!-- Polar Grid Rings -->
+  <circle cx="256" cy="256" r="190" fill="none" stroke="#334155" stroke-width="3" stroke-dasharray="8 8" opacity="0.6"/>
+  <circle cx="256" cy="256" r="130" fill="none" stroke="#334155" stroke-width="2" opacity="0.4"/>
+  <line x1="256" y1="40" x2="256" y2="472" stroke="#334155" stroke-width="2" stroke-dasharray="4 4" opacity="0.4"/>
+  <line x1="40" y1="256" x2="472" y2="256" stroke="#334155" stroke-width="2" stroke-dasharray="4 4" opacity="0.4"/>
+  
+  <!-- Antarctic / Arctic Mountainous Ice Shelf Silhouette -->
+  <path d="M120 350 L195 240 L240 290 L300 170 L390 350 Z" fill="url(#iceGrad)" opacity="0.9" />
+  <path d="M195 240 L240 290 L300 170 L340 350 L220 350 Z" fill="#BAE6FD" opacity="0.6" />
+  
+  <!-- Compass Star Needle (Polar North / South Indicator) -->
+  <polygon points="256,110 268,230 256,220 244,230" fill="#EF4444" />
+  <polygon points="256,380 268,260 256,270 244,260" fill="#E2E8F0" />
+  
+  <!-- Center Satellite / Beacon Core -->
+  <circle cx="256" cy="245" r="16" fill="#FFFFFF" filter="drop-shadow(0 0 8px #38BDF8)"/>
+  <circle cx="256" cy="245" r="8" fill="#0284C7" />
+  
+  <!-- Outer Ring Cardinal Accents -->
+  <text x="256" y="82" fill="#38BDF8" font-family="system-ui, sans-serif" font-size="24" font-weight="bold" text-anchor="middle">N</text>
+  <text x="256" y="445" fill="#38BDF8" font-family="system-ui, sans-serif" font-size="24" font-weight="bold" text-anchor="middle">S</text>
+</svg>

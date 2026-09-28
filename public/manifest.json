@@ -1,0 +1,27 @@
+{
+  "id": "/",
+  "name": "Integrated Polar Expedition Logistics and Asset Management System",
+  "short_name": "IPE-LAMS",
+  "description": "Ministry of Earth Sciences (MoES) Polar Command & Mobile Field System for Antarctica & Arctic Expeditions.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#F8F9FA",
+  "theme_color": "#0284C7",
+  "categories": ["government", "logistics", "utilities"],
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}
